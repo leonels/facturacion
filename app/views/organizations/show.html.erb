@@ -1,0 +1,43 @@
+<p>
+  <b>Name:</b>
+  <%= @organization.name %>
+</p>
+
+<p>
+  <b>Address one:</b>
+  <%= @organization.address_one %>
+</p>
+
+<p>
+  <b>Address two:</b>
+  <%= @organization.address_two %>
+</p>
+
+<p>
+  <b>City:</b>
+  <%= @organization.city %>
+</p>
+
+<p>
+  <b>State:</b>
+  <%= @organization.state %>
+</p>
+
+<p>
+  <b>Zipcode:</b>
+  <%= @organization.zipcode %>
+</p>
+
+<p>
+  <b>Business phone:</b>
+  <%= @organization.business_phone %>
+</p>
+
+<p>
+  <b>Fax:</b>
+  <%= @organization.fax %>
+</p>
+
+
+<%= link_to 'Edit', edit_organization_path(@organization) %> |
+<%= link_to 'Back', organizations_path %>

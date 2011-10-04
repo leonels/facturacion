@@ -7,7 +7,6 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<h1>ADMIN</h1>
 <div id="user_nav">
   <% if current_user %>
     Logged in as <%= current_user.email %>.
@@ -17,6 +16,12 @@
     <%= link_to "log in", login_path %>
   <% end %>
 </div>
+
+<ul>
+  <li><%= link_to 'Organizations', organizations_url %></li>
+  <li><%= link_to 'Companies', companies_url %></li>
+  <li><%= link_to 'Users', users_url  %></li>
+</ul>
 
 <% flash.each do |name, msg| %>
   <%= content_tag :div, msg, :id => "flash_#{name}" %>

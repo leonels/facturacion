@@ -1,5 +1,7 @@
 Facturacion::Application.routes.draw do
 
+  resources :organizations
+
   require 'subdomain'
   constraints(Subdomain) do
     match '/' => 'sessions#new'

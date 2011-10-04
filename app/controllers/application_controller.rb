@@ -30,7 +30,7 @@ class ApplicationController < ActionController::Base
 
   def layout
     unless request.subdomain.empty?
-      render :layout => 'admin'
+      self.class.layout 'admin'
     end
   end
 
