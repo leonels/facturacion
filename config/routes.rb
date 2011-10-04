@@ -8,6 +8,7 @@ Facturacion::Application.routes.draw do
   get 'logout' => 'sessions#destroy'
   get 'login' => "sessions#new"
   get 'signup' => "accounts#new"
+  get 'dashboard' => "dashboard#index"
   root :to => 'accounts#new'
   resources :users
   resources :sessions
