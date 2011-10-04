@@ -1,0 +1,5 @@
+<h1>Listing accounts</h1>
+
+<% @accounts.each do |account| %>
+<p><%= link_to account.subdomain, new_session_url(:subdomain => account.subdomain) %></p>
+<% end %>

@@ -1,6 +1,5 @@
 class AccountsController < ApplicationController
-  # GET /accounts
-  # GET /accounts.json
+
   def index
     @accounts = Account.all
 

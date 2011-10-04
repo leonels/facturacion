@@ -13,6 +13,13 @@ class SessionsController < ApplicationController
     end
   end
 
+  def index
+    @accounts = Account.all
+    respond_to do |format|
+      format.html
+    end
+  end
+
   def destroy
     session[:user_id] = nil
     redirect_to root_url, :notice => "Logged out!"

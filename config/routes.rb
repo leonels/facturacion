@@ -1,5 +1,10 @@
 Facturacion::Application.routes.draw do
 
+  require 'subdomain'
+  constraints(Subdomain) do
+    match '/' => 'sessions#new'
+  end
+
   get 'logout' => 'sessions#destroy'
   get 'login' => "sessions#new"
   get 'signup' => "accounts#new"
