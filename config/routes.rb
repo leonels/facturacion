@@ -1,10 +1,13 @@
 Facturacion::Application.routes.draw do
-  get "sessions/new"
 
-  get "users/new"
+  get 'logout' => 'sessions#destroy'
+  get 'login' => "sessions#new"
+  get 'signup' => "accounts#new"
+  root :to => 'accounts#new'
+  resources :users
+  resources :sessions
 
   resources :companies
-
   resources :accounts
 
   # The priority is based upon order of creation:

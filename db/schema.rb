@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111004155856) do
+ActiveRecord::Schema.define(:version => 20111004173233) do
 
   create_table "accounts", :force => true do |t|
     t.datetime "created_at"
@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(:version => 20111004155856) do
     t.string   "password_salt"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "account_id"
   end
 
 end

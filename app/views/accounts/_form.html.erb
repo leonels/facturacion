@@ -1,17 +1,43 @@
-<%= form_for(@account) do |f| %>
+<%= form_for @account do |account_f| %>
   <% if @account.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@account.errors.count, "error") %> prohibited this account from being saved:</h2>
-
+    <div class="error_messages">
+      <h2>Form is invalid</h2>
       <ul>
-      <% @account.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
+        <% for message in @account.errors.full_messages %>
+          <li><%= message %></li>
+        <% end %>
       </ul>
     </div>
   <% end %>
 
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <%= account_f.fields_for :companies do |company_f| %>
+    <p>
+      <%= company_f.label :name, 'Company Name: ' %><br />
+      <%= company_f.text_field :name %>
+    </p>    
+  <% end %>
+
+  <%= account_f.fields_for :users do |user_f| %>
+    <p>
+      <%= user_f.label :email %><br />
+      <%= user_f.text_field :email %>
+    </p>    
+
+  <p>
+    <%= user_f.label :password %><br />
+    <%= user_f.password_field :password %>
+  </p>
+  <p>
+    <%= user_f.label :password_confirmation %><br />
+    <%= user_f.password_field :password_confirmation %>
+  </p>
+
+  <% end %>
+
+  <p>
+    <%= account_f.label :subdomain, 'Login Page: ' %><br />
+    http://<%= account_f.text_field :subdomain %>.webappdomain.com
+  </p>
+
+  <p class="button"><%= account_f.submit 'Sign up!', :disable_with => "Processing..." %></p>
 <% end %>

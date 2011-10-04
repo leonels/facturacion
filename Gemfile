@@ -18,6 +18,8 @@ end
 
 gem 'jquery-rails'
 
+gem 'bcrypt-ruby', :require => 'bcrypt'
+
 # to prevent the following error
 # Could not find a JavaScript runtime
 gem 'execjs'
