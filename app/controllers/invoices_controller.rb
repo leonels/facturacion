@@ -1,7 +1,7 @@
 class InvoicesController < ApplicationController
   load_and_authorize_resource
 
-  before_filter :load_extra_resources, :only => [:new, :edit]
+  before_filter :load_extra_resources, :only => [:new, :create, :edit, :update]
 
   def index
     # @invoices = Invoice.all

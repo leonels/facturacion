@@ -1,10 +1,17 @@
 Client: <%= @invoice.organization.name %>
 
-<ul>
-<%= @invoice.line_items.each do |line_item| %>
-  <li><%= line_item.item.name %></li>
+<table id="invoice_items">
+<tr>
+  <th>Item</th>
+  <th>Qty</th>
+</tr>
+<% @invoice.line_items.each do |line_item| %>
+  <tr>
+    <td><%= line_item.item.name %></td>
+    <td><%= line_item.quantity %></td>
+  </tr>
 <% end %>
-</ul>
+</table>
 
 <hr />
 
