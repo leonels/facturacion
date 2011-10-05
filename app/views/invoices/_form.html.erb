@@ -1,3 +1,5 @@
+<%= debug @invoice.errors %>
+
 <%= form_for(@invoice) do |f| %>
   <% if @invoice.errors.any? %>
     <div id="error_explanation">
@@ -11,7 +13,29 @@
     </div>
   <% end %>
 
+  <%= debug @invoice %>
+
+  <!--
+  <div class="field">
+    <%=
+    # f.label :organization_name 
+    %>
+    <%= 
+    # f.text_field :organization_name 
+    %>
+  </div>
+  -->
+  
+  <div class="field">
+    <%= f.label :organization_id %>
+    <%= f.collection_select :organization_id, @organizations, :id, :name, :prompt => 'Select' %>
+  </div>
+
+  <%= f.fields_for :line_items do |builder| %>
+    <%= render 'line_item_fields', :f => builder %>
+  <% end %>
+
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit 'Save', :disable_with => "Processing..." %>
   </div>
 <% end %>

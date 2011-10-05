@@ -32,6 +32,7 @@ class Ability
     can :manage, User, :id => current_user.id
     can :manage, Item, :account_id => current_user.account_id
     can :manage, Invoice, :account_id => current_user.account_id
+    # what about line_items?
     
   end
 end

@@ -1,0 +1,4 @@
+<p>
+<%= f.label :item_id, 'Item' %>
+<%= f.collection_select :item_id, @items, :id, :name, :prompt => 'Select' %>
+</p>

@@ -1,5 +1,9 @@
-<p id="notice"><%= notice %></p>
+Client: <%= @invoice.organization.name %>
 
+<%= @invoice.line_items.each do |line_item| %>
+  <%= line_item.item.name %>
+<% end %>
 
+<hr />
 <%= link_to 'Edit', edit_invoice_path(@invoice) %> |
 <%= link_to 'Back', invoices_path %>

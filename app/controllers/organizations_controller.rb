@@ -30,6 +30,7 @@ class OrganizationsController < ApplicationController
   def create
     # @organization = Organization.new(params[:organization])
     @organization.contacts[0].account_id = current_user.account_id
+    @organization.account_id = current_user.account_id if @organization.new_record?
     respond_to do |format|
       if @organization.save
         format.html { redirect_to @organization, notice: 'Organization was successfully created.' }
