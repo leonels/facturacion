@@ -1,5 +1,7 @@
 Facturacion::Application.routes.draw do
 
+  resources :contacts
+
   resources :organizations
 
   require 'subdomain'

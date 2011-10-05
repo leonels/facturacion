@@ -1,6 +1,6 @@
 class Account < ActiveRecord::Base
 
-  has_many :organizations, :depedent => :destroy
+  has_many :organizations, :dependent => :destroy
   has_many :companies, :dependent => :destroy
   has_many :users, :dependent => :destroy
 

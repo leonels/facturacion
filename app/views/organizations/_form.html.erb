@@ -11,10 +11,53 @@
     </div>
   <% end %>
 
+  <h2>Organization</h2>
+
   <div class="field">
-    <%= f.label :name %><br />
+    <%= f.label :name, 'Organization name' %><br />
     <%= f.text_field :name %>
   </div>
+  
+  <h2>Contacts</h2>
+  <%= f.fields_for :contacts do |contact_f| %>
+  <div class="field">
+      <%= contact_f.label :email %><br />
+      <%= contact_f.text_field :email %>
+  </div>
+  
+  <div class="field">
+      <%= contact_f.label :first_name %><br />
+      <%= contact_f.text_field :first_name %>
+  </div>
+  
+  <div class="field">
+      <%= contact_f.label :last_name %><br />
+      <%= contact_f.text_field :last_name %>
+  </div>
+  
+  <div class="field">
+      <%= contact_f.label :home_phone %><br />
+      <%= contact_f.text_field :home_phone %>
+  </div>
+  
+  <div class="field">
+      <%= contact_f.label :mobile_phone %><br />
+      <%= contact_f.text_field :mobile_phone %>
+  </div>
+  
+  <div class="field">
+      <%= contact_f.label :work_phone %><br />
+      <%= contact_f.text_field :work_phone %>
+  </div>
+  
+  <div class="field">
+      <%= contact_f.label :email %><br />
+      <%= contact_f.text_field :email %>
+  </div>
+  <% end %>
+  
+  <h2>Details</h2>
+  
   <div class="field">
     <%= f.label :address_one %><br />
     <%= f.text_field :address_one %>

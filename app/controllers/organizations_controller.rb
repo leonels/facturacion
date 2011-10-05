@@ -21,14 +21,12 @@ class OrganizationsController < ApplicationController
     end
   end
 
-  # GET /organizations/new
-  # GET /organizations/new.json
   def new
     @organization = Organization.new
+    @organization.contacts.build
 
     respond_to do |format|
       format.html # new.html.erb
-      format.json { render json: @organization }
     end
   end
 
