@@ -61,3 +61,22 @@ div#flash_notice{
   padding:5px;
 }
 
+
+table.listing{
+  border-collapse:collapse;
+}
+
+table.listing td, table.listing th{
+  padding:5px;
+  text-align:left;
+}
+
+table.listing th{
+  background-color:#1874CD;
+  color:white;
+}
+
+table.listing td{
+  border-bottom:1px solid #CCC;
+}
+

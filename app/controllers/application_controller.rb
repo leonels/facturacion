@@ -29,10 +29,8 @@ class ApplicationController < ActionController::Base
   end
 
   def layout
-    unless request.subdomain.empty?
-      unless current_user.nil?
+    if (!request.subdomain.empty? && !current_user.nil?)
       self.class.layout 'admin'
-      end
     end
   end
 

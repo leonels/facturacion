@@ -1,15 +1,11 @@
-<h1>Listing organizations</h1>
+<h1>Clients</h1>
 
-<table>
+<table class="listing">
   <tr>
-    <th>Name</th>
-    <th>Address one</th>
-    <th>Address two</th>
-    <th>City</th>
-    <th>State</th>
-    <th>Zipcode</th>
-    <th>Business phone</th>
-    <th>Fax</th>
+    <th>Organization</th>
+    <th>Contact</th>
+    <th>Email</th>
+    <th>Business Phone</th>
     <th></th>
     <th></th>
     <th></th>
@@ -17,14 +13,10 @@
 
 <% @organizations.each do |organization| %>
   <tr>
-    <td><%= organization.name %></td>
-    <td><%= organization.address_one %></td>
-    <td><%= organization.address_two %></td>
-    <td><%= organization.city %></td>
-    <td><%= organization.state %></td>
-    <td><%= organization.zipcode %></td>
+    <td><%= link_to organization.name, organization_url(organization) %></td>
+    <td><%= organization.contacts[0].full_name %></td>
+    <td><%= organization.contacts[0].email %></td>
     <td><%= organization.business_phone %></td>
-    <td><%= organization.fax %></td>
     <td><%= link_to 'Show', organization %></td>
     <td><%= link_to 'Edit', edit_organization_path(organization) %></td>
     <td><%= link_to 'Destroy', organization, confirm: 'Are you sure?', method: :delete %></td>

@@ -1,43 +1,26 @@
-<p>
-  <b>Name:</b>
-  <%= @organization.name %>
-</p>
+<h1><%= @organization.name %></h1>
 
 <p>
-  <b>Address one:</b>
+  Address:<br />
   <%= @organization.address_one %>
+  <%= @organization.address_two %><br />
+  <%= @organization.city %>  <%= @organization.state %> <%= @organization.zipcode %>
 </p>
 
 <p>
-  <b>Address two:</b>
-  <%= @organization.address_two %>
+  Business phone: <%= @organization.business_phone %><br />
+  Fax: <%= @organization.fax %>
 </p>
 
+<% @contacts.each do |contact| %>
 <p>
-  <b>City:</b>
-  <%= @organization.city %>
+<b><%= contact.full_name %></b><br />
+Email: <%= contact.email %><br />
+Mobile: <%= contact.mobile_phone %><br />
+Home: <%= contact.home_phone %><br />
+Work: <%= contact.work_phone %>
 </p>
-
-<p>
-  <b>State:</b>
-  <%= @organization.state %>
-</p>
-
-<p>
-  <b>Zipcode:</b>
-  <%= @organization.zipcode %>
-</p>
-
-<p>
-  <b>Business phone:</b>
-  <%= @organization.business_phone %>
-</p>
-
-<p>
-  <b>Fax:</b>
-  <%= @organization.fax %>
-</p>
-
+<% end %>
 
 <%= link_to 'Edit', edit_organization_path(@organization) %> |
 <%= link_to 'Back', organizations_path %>

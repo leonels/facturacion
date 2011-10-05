@@ -34,12 +34,7 @@
       <%= contact_f.label :last_name %><br />
       <%= contact_f.text_field :last_name %>
   </div>
-  
-  <div class="field">
-      <%= contact_f.label :home_phone %><br />
-      <%= contact_f.text_field :home_phone %>
-  </div>
-  
+    
   <div class="field">
       <%= contact_f.label :mobile_phone %><br />
       <%= contact_f.text_field :mobile_phone %>
@@ -49,10 +44,10 @@
       <%= contact_f.label :work_phone %><br />
       <%= contact_f.text_field :work_phone %>
   </div>
-  
+
   <div class="field">
-      <%= contact_f.label :email %><br />
-      <%= contact_f.text_field :email %>
+      <%= contact_f.label :home_phone %><br />
+      <%= contact_f.text_field :home_phone %>
   </div>
   <% end %>
   
@@ -87,6 +82,6 @@
     <%= f.text_field :fax %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit 'Save', :disable_with => "Processing..." %>
   </div>
 <% end %>
