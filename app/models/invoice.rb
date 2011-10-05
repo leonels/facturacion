@@ -6,8 +6,13 @@ class Invoice < ActiveRecord::Base
   validates :account_id, :presence => true
   validates :organization_id, :presence => true
   
-  accepts_nested_attributes_for :line_items
+  # accepts_nested_attributes_for :line_items, :reject_if => lambda { |a| a[:item_id].nil? }
+  accepts_nested_attributes_for :line_items, :reject_if => :reject_line_items
   
+  def reject_line_items(attributed)
+    attributed['item_id'].blank?
+  end
+
   # def organization_name
     # organization.name if organization
   # end

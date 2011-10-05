@@ -62,7 +62,7 @@ div#flash_notice{
 }
 
 
-table.listing{
+table{
   border-collapse:collapse;
 }
 
@@ -80,3 +80,16 @@ table.listing td{
   border-bottom:1px solid #CCC;
 }
 
+table#invoice_items th{
+  background-color:#1874CD;
+  color:white;
+}
+
+table#invoice_items td{
+  border:1px solid #CCC;
+}
+
+table#invoice_items td select{
+  background-color:white;
+  border:0;
+}

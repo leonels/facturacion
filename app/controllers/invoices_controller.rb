@@ -1,6 +1,8 @@
 class InvoicesController < ApplicationController
   load_and_authorize_resource
 
+  before_filter :load_extra_resources, :only => [:new, :edit]
+
   def index
     # @invoices = Invoice.all
     respond_to do |format|
@@ -17,8 +19,6 @@ class InvoicesController < ApplicationController
 
   def new
     # @invoice = Invoice.new
-    @organizations = Organization.all(:conditions => ['account_id = ?', current_user.account_id])
-    @items = Item.all(:conditions => ['account_id = ?', current_user.account_id])
     3.times do
       line_item = @invoice.line_items.build
     end
@@ -29,6 +29,9 @@ class InvoicesController < ApplicationController
 
   def edit
     # @invoice = Invoice.find(params[:id])
+    3.times do
+      line_item = @invoice.line_items.build
+    end
   end
 
   def create
@@ -61,4 +64,12 @@ class InvoicesController < ApplicationController
       format.html { redirect_to invoices_url }
     end
   end
+  
+  private
+  
+  def load_extra_resources
+    @organizations = Organization.all(:conditions => ['account_id = ?', current_user.account_id])
+    @items = Item.all(:conditions => ['account_id = ?', current_user.account_id])
+  end
+  
 end

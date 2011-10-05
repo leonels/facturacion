@@ -1,9 +1,12 @@
 Client: <%= @invoice.organization.name %>
 
+<ul>
 <%= @invoice.line_items.each do |line_item| %>
-  <%= line_item.item.name %>
+  <li><%= line_item.item.name %></li>
 <% end %>
+</ul>
 
 <hr />
+
 <%= link_to 'Edit', edit_invoice_path(@invoice) %> |
 <%= link_to 'Back', invoices_path %>
