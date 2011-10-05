@@ -3,7 +3,7 @@
 <table id="invoice_items">
   <tr>
     <th>id</th>
-    <th>organization</th>
+    <th>Client Name</th>
     <th>Date</th>
     <th></th>
     <th></th>
@@ -14,7 +14,7 @@
   <tr>
     <td><%= invoice.id %></td>
     <td><%= invoice.organization.name %></td>
-    <td><%= invoice.created_at %></td>
+    <td><%= invoice.min_created_at %></td>
     <td><%= link_to 'Show', invoice %></td>
     <td><%= link_to 'Edit', edit_invoice_path(invoice) %></td>
     <td><%= link_to 'Destroy', invoice, confirm: 'Are you sure?', method: :delete %></td>

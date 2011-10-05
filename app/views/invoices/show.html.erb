@@ -4,13 +4,20 @@ Client: <%= @invoice.organization.name %>
 <tr>
   <th>Item</th>
   <th>Qty</th>
+  <th>Unit Cost</th>
+  <th>Line Total</th>
 </tr>
 <% @invoice.line_items.each do |line_item| %>
   <tr>
     <td><%= line_item.item.name %></td>
     <td><%= line_item.quantity %></td>
+    <td><%= line_item.item.cost %></td>
+    <td><%= line_item.quantity * line_item.item.cost %></td>
   </tr>
 <% end %>
+<tr>
+<td colspan="4">Subtotal</td>
+</tr>
 </table>
 
 <hr />

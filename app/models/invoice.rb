@@ -8,6 +8,14 @@ class Invoice < ActiveRecord::Base
   
   # accepts_nested_attributes_for :line_items, :reject_if => lambda { |a| a[:item_id].nil? }
   accepts_nested_attributes_for :line_items, :reject_if => :reject_line_items
+
+  def abbreviated_created_at
+		created_at.strftime("%a %b %d at %I:%M%P")
+	end
+  
+  def min_created_at
+		created_at.strftime("%m/%d/%y")
+	end
   
   def reject_line_items(attributed)
     attributed['item_id'].blank?
