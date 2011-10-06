@@ -1,6 +1,5 @@
 class TaxesController < ApplicationController
-  # GET /taxes
-  # GET /taxes.json
+
   def index
     @taxes = Tax.all
 
@@ -13,42 +12,41 @@ class TaxesController < ApplicationController
   # GET /taxes/1
   # GET /taxes/1.json
   def show
-    @taxis = Tax.find(params[:id])
+    @tax = Tax.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: @taxis }
+      format.json { render json: @tax }
     end
   end
 
   # GET /taxes/new
   # GET /taxes/new.json
   def new
-    @taxis = Tax.new
+    @tax = Tax.new
 
     respond_to do |format|
       format.html # new.html.erb
-      format.json { render json: @taxis }
+      format.json { render json: @tax }
     end
   end
 
   # GET /taxes/1/edit
   def edit
-    @taxis = Tax.find(params[:id])
+    @tax = Tax.find(params[:id])
   end
 
-  # POST /taxes
-  # POST /taxes.json
   def create
-    @taxis = Tax.new(params[:taxis])
+    @tax = Tax.new(params[:tax])
+    @tax.account_id = current_user.account_id
 
     respond_to do |format|
-      if @taxis.save
-        format.html { redirect_to @taxis, notice: 'Tax was successfully created.' }
-        format.json { render json: @taxis, status: :created, location: @taxis }
+      if @tax.save
+        format.html { redirect_to @tax, notice: 'Tax was successfully created.' }
+        format.json { render json: @tax, status: :created, location: @tax }
       else
         format.html { render action: "new" }
-        format.json { render json: @taxis.errors, status: :unprocessable_entity }
+        format.json { render json: @tax.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -56,15 +54,15 @@ class TaxesController < ApplicationController
   # PUT /taxes/1
   # PUT /taxes/1.json
   def update
-    @taxis = Tax.find(params[:id])
+    @tax = Tax.find(params[:id])
 
     respond_to do |format|
-      if @taxis.update_attributes(params[:taxis])
-        format.html { redirect_to @taxis, notice: 'Tax was successfully updated.' }
+      if @tax.update_attributes(params[:tax])
+        format.html { redirect_to @tax, notice: 'Tax was successfully updated.' }
         format.json { head :ok }
       else
         format.html { render action: "edit" }
-        format.json { render json: @taxis.errors, status: :unprocessable_entity }
+        format.json { render json: @tax.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -72,8 +70,8 @@ class TaxesController < ApplicationController
   # DELETE /taxes/1
   # DELETE /taxes/1.json
   def destroy
-    @taxis = Tax.find(params[:id])
-    @taxis.destroy
+    @tax = Tax.find(params[:id])
+    @tax.destroy
 
     respond_to do |format|
       format.html { redirect_to taxes_url }

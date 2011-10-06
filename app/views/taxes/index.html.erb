@@ -9,17 +9,17 @@
     <th></th>
   </tr>
 
-<% @taxes.each do |taxis| %>
+<% @taxes.each do |tax| %>
   <tr>
-    <td><%= taxis.name %></td>
-    <td><%= taxis.rate %></td>
-    <td><%= link_to 'Show', taxis %></td>
-    <td><%= link_to 'Edit', edit_taxis_path(taxis) %></td>
-    <td><%= link_to 'Destroy', taxis, confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= tax.name %></td>
+    <td><%= tax.rate %></td>
+    <td><%= link_to 'Show', tax %></td>
+    <td><%= link_to 'Edit', edit_tax_path(tax) %></td>
+    <td><%= link_to 'Destroy', tax, confirm: 'Are you sure?', method: :delete %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Tax', new_taxis_path %>
+<%= link_to 'New Tax', new_tax_path %>

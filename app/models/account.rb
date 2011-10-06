@@ -6,6 +6,7 @@ class Account < ActiveRecord::Base
   has_many :contacts, :dependent => :destroy
   has_many :items, :dependent => :destroy
   has_many :invoices, :dependent => :destroy
+  has_many :taxes, :dependent => :destroy
 
   accepts_nested_attributes_for :companies
   accepts_nested_attributes_for :users
@@ -13,5 +14,6 @@ class Account < ActiveRecord::Base
   accepts_nested_attributes_for :contacts
   accepts_nested_attributes_for :items
   accepts_nested_attributes_for :invoices
+  accepts_nested_attributes_for :taxes
 
 end
