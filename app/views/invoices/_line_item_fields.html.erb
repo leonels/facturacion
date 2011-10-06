@@ -1,5 +1,5 @@
 <tr>
   <td><%= f.collection_select :item_id, @items, :id, :name, :prompt => '' %></td>
-
+  <td><%= f.text_field :cost, :class => 'cost' %></td>
   <td><%= f.text_field :quantity, :class => 'qty' %></td>
 </tr>

@@ -1,5 +1,7 @@
 Client: <%= @invoice.organization.name %>
 
+<p><%= simple_format @invoice.organization.formatted_address %></p>
+
 <table id="invoice_items">
 <tr>
   <th>Item</th>
@@ -10,7 +12,7 @@ Client: <%= @invoice.organization.name %>
 <% @invoice.line_items.each do |line_item| %>
   <tr>
     <td><%= line_item.item.name %></td>
-    <td><%= number_to_currency line_item.item.cost %></td>
+    <td><%= number_to_currency line_item.cost %></td>
     <td><%= line_item.quantity %></td>
     <td><%= number_to_currency line_item.line_total %></td>
   </tr>

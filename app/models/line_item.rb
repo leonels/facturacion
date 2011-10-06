@@ -8,11 +8,12 @@ class LineItem < ActiveRecord::Base
   before_save :default_values
   
   def line_total
-    item.cost * quantity
+    cost * quantity
   end
   
   def default_values
     self.quantity = 1 unless self.quantity
+    self.cost = item.cost unless self.cost
   end
 
 end

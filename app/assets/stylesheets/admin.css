@@ -100,7 +100,7 @@ table#invoice_items td select{
   padding:2px;
 }
 
-input.qty{
+input.qty, input.cost{
   background-color:white;
   border:0;
   font-size:12pt;

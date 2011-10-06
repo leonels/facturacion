@@ -17,7 +17,7 @@
   </div>
 
   <table id="invoice_items">
-  <tr><th>Item</th><th>Qty</th></tr>
+  <tr><th>Item</th><th>Unit Cost</th><th>Qty</th></tr>
   <%= f.fields_for :line_items do |builder| %>
     <%= render 'line_item_fields', :f => builder %>
   <% end %>
