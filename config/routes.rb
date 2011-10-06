@@ -1,5 +1,7 @@
 Facturacion::Application.routes.draw do
 
+  resources :taxes
+
   resources :line_items
 
   resources :invoices
