@@ -7,8 +7,12 @@ class LineItem < ActiveRecord::Base
   
   before_save :default_values
   
+  def line_total
+    item.cost * quantity
+  end
+  
   def default_values
     self.quantity = 1 unless self.quantity
   end
-  
+
 end

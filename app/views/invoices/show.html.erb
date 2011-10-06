@@ -3,20 +3,20 @@ Client: <%= @invoice.organization.name %>
 <table id="invoice_items">
 <tr>
   <th>Item</th>
-  <th>Qty</th>
   <th>Unit Cost</th>
+  <th>Qty</th>
   <th>Line Total</th>
 </tr>
 <% @invoice.line_items.each do |line_item| %>
   <tr>
     <td><%= line_item.item.name %></td>
+    <td><%= number_to_currency line_item.item.cost %></td>
     <td><%= line_item.quantity %></td>
-    <td><%= line_item.item.cost %></td>
-    <td><%= line_item.quantity * line_item.item.cost %></td>
+    <td><%= number_to_currency line_item.line_total %></td>
   </tr>
 <% end %>
 <tr>
-<td colspan="4">Subtotal</td>
+<td colspan="4">Subtotal <%= number_to_currency @invoice.subtotal %></td>
 </tr>
 </table>
 
