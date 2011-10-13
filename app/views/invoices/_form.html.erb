@@ -17,7 +17,7 @@
   </div>
 
   <table id="invoice_items">
-  <tr><th>Item</th><th>Description</th><th>Unit Cost</th><th>Qty</th></tr>
+  <tr><th>Item</th><th>Description</th><th>Unit Cost</th><th>Qty</th><th>Line Total</th></tr>
   <%= f.fields_for :line_items do |builder| %>
     <%= render 'line_item_fields', :f => builder %>
   <% end %>
@@ -34,4 +34,3 @@ Total Price: <span id="total-price">input quantities</span>
 <p>
 Testing: <span id="testing">here</span>
 </p>
-
