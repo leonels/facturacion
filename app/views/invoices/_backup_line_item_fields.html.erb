@@ -1,0 +1,6 @@
+<tr class="line_item">
+  <td><%= f.collection_select :item_id, @items, :id, :name, :prompt => '' %></td>
+  <td>Description here <div class="price" data-price="<%= f.object.cost %>"><%= f.object.cost %></div></td>
+  <td><%= f.text_field :cost, :class => 'cost' %></td>
+  <td><%= f.text_field :quantity, :class => 'qty' %></td>
+</tr>

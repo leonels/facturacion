@@ -1,10 +1,11 @@
-Client: <%= @invoice.organization.name %>
-
 <p><%= simple_format @invoice.organization.formatted_address %></p>
+<p>Invoice # <%= @invoice.id %></p>
+<p>Invoice Date <%= @invoice.read_date_created_at %></p>
 
 <table id="invoice_items">
 <tr>
   <th>Item</th>
+  <th>Description</th>
   <th>Unit Cost</th>
   <th>Qty</th>
   <th>Line Total</th>
@@ -12,13 +13,14 @@ Client: <%= @invoice.organization.name %>
 <% @invoice.line_items.each do |line_item| %>
   <tr>
     <td><%= line_item.item.name %></td>
+    <td><%= line_item.item.description %></td>
     <td><%= number_to_currency line_item.cost %></td>
     <td><%= line_item.quantity %></td>
     <td><%= number_to_currency line_item.line_total %></td>
   </tr>
 <% end %>
 <tr>
-<td colspan="4">Subtotal <%= number_to_currency @invoice.subtotal %></td>
+<td colspan="5">Subtotal <%= number_to_currency @invoice.subtotal %></td>
 </tr>
 </table>
 

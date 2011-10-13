@@ -1,5 +1,18 @@
-<tr>
-  <td><%= f.collection_select :item_id, @items, :id, :name, :prompt => '' %></td>
-  <td><%= f.text_field :cost, :class => 'cost' %></td>
-  <td><%= f.text_field :quantity, :class => 'qty' %></td>
-</tr>
+<div class="item">
+  
+  <%= @items.methods %>
+  
+  <%= debug @items.map %>
+  
+  <p>Product: <%= 
+  # f.collection_select(:item_id, @items, :id, :name, {:prompt => ''}, {:class=>'product'})
+  %></p>
+  
+  <p>Product: <%= 
+  # f.select(:item_id, options_from_collection_for_select_with_attributes(@items, :id, :name, 'data-cost', :quantity), {:prompt => 'Select'}, {:class=>'product'}) 
+  %></p>
+  
+  Price: <div class="price" data-price="<%= f.object.cost %>"><%= f.object.cost %></div>
+  Qty: <%= f.text_field :quantity, :class => 'quantity' %><br />
+</div>
+3<hr />

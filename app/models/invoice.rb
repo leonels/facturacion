@@ -13,12 +13,17 @@ class Invoice < ActiveRecord::Base
     line_items.to_a.sum { |item| item.line_total }
   end
 
+  def read_date_created_at
+    created_at.strftime("%B %d, %Y")
+  end
+
   def abbreviated_created_at
 		created_at.strftime("%a %b %d at %I:%M%P")
 	end
   
   def min_created_at
-		created_at.strftime("%m/%d/%y")
+		created_at.strftime("%D")
+		# created_at.strftime("%m/%d/%y")
 	end
   
   def reject_line_items(attributed)
