@@ -23,14 +23,13 @@ $(document).ready(function() {
 
   $(".product").change(function(event){
     var optionElem = $(this).find(":selected")[0]; // <option value="3" data-defaultQuantity="1">product name</option>
-    $(this).closest('.item').find('.quantity').val(optionElem.dataset.defaultquantity);
-    alert($(this).attr('name')); // gets ID of select menu    
+    $(this).closest('.item').find('.qty').val(optionElem.dataset.defaultquantity); // replace quantity
+    $(this).closest('.item').find('.cost').val(optionElem.dataset.cost); // replace cost
+    
+    // alert($(this).attr('name')); // gets ID of select menu    
     // $('#testing').html(optionElem.dataset.defaultquantity);
     
     // $('.quantity').val(optionElem.dataset.defaultquantity); // changes all of the quantities because they're all .quantity
-    
-   
-    
     
     // var optionElem = $(this).find(":selected")[0];
     // $('.quantity').val(optionElem.dataset.defaultQuantity);

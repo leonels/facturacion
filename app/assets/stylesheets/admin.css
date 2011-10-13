@@ -80,6 +80,10 @@ table.listing td{
   border-bottom:1px solid #CCC;
 }
 
+table#invoice_items{
+  width:100%;
+}
+
 table#invoice_items th, table#invoice_items td{
   padding:5px;
 }
@@ -96,14 +100,14 @@ table#invoice_items td{
 table#invoice_items td select{
   background-color:white;
   border:0;
-  font-size:12pt;
+  font-size:10pt;
   padding:2px;
 }
 
 input.qty, input.cost{
   background-color:white;
   border:0;
-  font-size:12pt;
+  font-size:10pt;
   padding:2px;
-  width:40px;
+  width:50px;
 }
