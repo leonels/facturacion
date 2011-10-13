@@ -36,6 +36,7 @@ $(document).ready(function() {
     var optionElem = $(this).find(":selected")[0]; // <option value="3" data-defaultQuantity="1">product name</option>
     $(this).closest('.item').find('.qty').val(optionElem.dataset.defaultquantity); // replace quantity
     $(this).closest('.item').find('.cost').val(optionElem.dataset.cost); // replace cost
+    
     // alert($(this).attr('name')); // gets ID of select menu
   });
 
