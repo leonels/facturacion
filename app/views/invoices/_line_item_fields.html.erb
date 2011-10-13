@@ -1,18 +1,29 @@
 <div class="item">
   
-  <%= @items.methods %>
+  <%=
+  # @items.methods
+  # debug @items.map
+  # f.object.cost
+  %>
   
-  <%= debug @items.map %>
-  
+  <!--
   <p>Product: <%= 
   # f.collection_select(:item_id, @items, :id, :name, {:prompt => ''}, {:class=>'product'})
-  %></p>
+  %>
+  </p>
+  -->
   
-  <p>Product: <%= 
-  # f.select(:item_id, options_from_collection_for_select_with_attributes(@items, :id, :name, 'data-cost', :quantity), {:prompt => 'Select'}, {:class=>'product'}) 
-  %></p>
+  <p>
+    Product: 
+    <%=
+    # f.select(:item_id, options_for_select(@items.map{|c| [c.name, c.id, {'data-defaultquantity'=>1}]}), {:prompt => 'Select'}, {:class=>'product'})
+    f.select(:item_id, @items, :id, :name, {:prompt => 'Select'}, {:class=>'product'})
+    # f.collection_select(:item_id, @items, :id, :name, {:prompt => 'Select'}, {:class=>'product'})
+    # f.select(:item_id, options_from_collection_for_select_with_attributes(@items, :id, :name, 'data-quantity', :quantity), {:prompt => 'Select'}, {:class=>'product'})
+    %>
+  </p>
   
-  Price: <div class="price" data-price="<%= f.object.cost %>"><%= f.object.cost %></div>
+  Price: <%= f.object.cost %> <div class="price" data-price="<%= f.object.cost %>"></div>
   Qty: <%= f.text_field :quantity, :class => 'quantity' %><br />
 </div>
-3<hr />
+<hr />

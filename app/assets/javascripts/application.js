@@ -16,16 +16,26 @@ function getTotal(quantities) {
     $("#total-price").html("$" + total + " USD");
 }
 
-function fillLineItems(product){
-  
-}
+// function fillLineItems(product){
+// }
 
 $(document).ready(function() {
 
-    var product = $('.product');
-    product.blur(function() {
-      fillLineItems(product);
-    });
+  $(".product").change(function(event){
+    alert($(this).attr('name'));   
+    var optionElem = $(this).find(":selected")[0]; // <option value="3" data-defaultQuantity="1">product name</option>
+    $('.quantity').val(optionElem.dataset.defaultquantity);
+    alert('Oh no! a change!')
+    $('#testing').html(optionElem.dataset.defaultquantity);
+    // var optionElem = $(this).find(":selected")[0];
+    // $('.quantity').val(optionElem.dataset.defaultQuantity);
+    // $(get the price input text box).val(optionElem.dataset.defaultPrice);
+  });
+
+//    var product = $('.product');
+//   product.blur(function() {
+//      fillLineItems(product);
+//    });
     
     var quantity = $('.quantity');
     getTotal(quantity); // So the total is calculated on page load.
