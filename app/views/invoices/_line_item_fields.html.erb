@@ -3,7 +3,7 @@
   <%=
   # @items.methods
   # debug @items.map
-  # f.object.cost
+  # debug f.object
   %>
   
   <!--
@@ -16,8 +16,11 @@
   <p>
     Product: 
     <%=
-    # f.select(:item_id, options_for_select(@items.map{|c| [c.name, c.id, {'data-defaultquantity'=>1}]}), {:prompt => 'Select'}, {:class=>'product'})
-    f.select(:item_id, @items, :id, :name, {:prompt => 'Select'}, {:class=>'product'})
+    # options_for_select allows me to add custom attributes, in this case data-defaultquantity
+    # f.object.item_id is "selected"
+    f.select(:item, options_for_select(@items.map{|c| [c.name, c.id, {'data-defaultquantity'=>1}]}, f.object.item_id), {:prompt => 'Select'}, {:class=>'product'})
+    
+    # f.select(:item_id, @items, :id, :name, {:prompt => 'Select'}, {:class=>'product'})
     # f.collection_select(:item_id, @items, :id, :name, {:prompt => 'Select'}, {:class=>'product'})
     # f.select(:item_id, options_from_collection_for_select_with_attributes(@items, :id, :name, 'data-quantity', :quantity), {:prompt => 'Select'}, {:class=>'product'})
     %>

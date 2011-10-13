@@ -22,11 +22,16 @@ function getTotal(quantities) {
 $(document).ready(function() {
 
   $(".product").change(function(event){
-    alert($(this).attr('name'));   
     var optionElem = $(this).find(":selected")[0]; // <option value="3" data-defaultQuantity="1">product name</option>
-    $('.quantity').val(optionElem.dataset.defaultquantity);
-    alert('Oh no! a change!')
-    $('#testing').html(optionElem.dataset.defaultquantity);
+    $(this).closest('.item').find('.quantity').val(optionElem.dataset.defaultquantity);
+    alert($(this).attr('name')); // gets ID of select menu    
+    // $('#testing').html(optionElem.dataset.defaultquantity);
+    
+    // $('.quantity').val(optionElem.dataset.defaultquantity); // changes all of the quantities because they're all .quantity
+    
+   
+    
+    
     // var optionElem = $(this).find(":selected")[0];
     // $('.quantity').val(optionElem.dataset.defaultQuantity);
     // $(get the price input text box).val(optionElem.dataset.defaultPrice);
