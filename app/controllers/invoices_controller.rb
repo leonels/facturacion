@@ -29,9 +29,9 @@ class InvoicesController < ApplicationController
 
   def edit
     # @invoice = Invoice.find(params[:id])
-    3.times do
+    # 3.times do
       line_item = @invoice.line_items.build
-    end
+    # end
   end
 
   def create

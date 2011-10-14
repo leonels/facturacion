@@ -1,0 +1,56 @@
+<%= form_for(@invoice) do |f| %>
+  <% if @invoice.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@invoice.errors.count, "error") %> prohibited this invoice from being saved:</h2>
+
+      <ul>
+      <% @invoice.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <table id="invoice">
+
+  <tr>
+    <td>
+    <div class="field">
+      <%= f.label :organization_id, 'Client', :class => 'label_bold' %>
+      <%= f.collection_select :organization_id, @organizations, :id, :name, :prompt => 'Select' %>
+    </div>
+    </td>
+    <td>
+      <strong>Invoice Number</strong> <br />
+      <strong>Date of Issue</strong> 
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2">
+
+  <table id="line_items">
+  <tr id="edit_heading"><th>Item</th><th>Description</th><th>Unit Cost</th><th>Qty</th><th>Line Total</th></tr>
+  <%= f.fields_for :line_items do |builder| %>
+    <%= render 'line_item_fields', :f => builder %>
+  <% end %>
+  </table>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td colspan="2">
+
+
+
+  <div class="actions">
+    <%= f.submit 'Save', :disable_with => "Processing..." %>
+  </div>
+<% end %>
+
+Total Price: <span id="total-price">input quantities</span>
+
+    </td>
+  </tr>
+
+</table>
