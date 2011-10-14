@@ -20,7 +20,7 @@
   </td>
   
   <td>
-    <%= f.text_field :cost, :class => 'cost' %>
+    <%= f.text_field :cost, :value => (number_with_precision(f.object.cost,:precision => 2)||0), :class => 'cost' %>
   </td>
   <td>
     <%= f.text_field :quantity, :class => 'qty' %>
