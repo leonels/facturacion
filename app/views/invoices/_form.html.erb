@@ -11,7 +11,7 @@
     </div>
   <% end %>
   
-  <table>
+  <table id="invoice">
 
   <tr>
     <td>
@@ -21,14 +21,15 @@
     </div>
     </td>
     <td>
-      <strong>Invoice Number</strong><%= @invoice.id %>
+      <strong>Invoice Number</strong> <%= @invoice.id %><br />
+      <strong>Date of Issue</strong> <%= @invoice.read_date_created_at %>
     </td>
   </tr>
   <tr>
     <td colspan="2">
 
-  <table id="invoice_items">
-  <tr><th>Item</th><th>Description</th><th>Unit Cost</th><th>Qty</th><th>Line Total</th></tr>
+  <table id="line_items">
+  <tr id="edit_heading"><th>Item</th><th>Description</th><th>Unit Cost</th><th>Qty</th><th>Line Total</th></tr>
   <%= f.fields_for :line_items do |builder| %>
     <%= render 'line_item_fields', :f => builder %>
   <% end %>

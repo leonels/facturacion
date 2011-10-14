@@ -128,34 +128,18 @@ table{
   width:100%;
 }
 
-table.listing td, table.listing th, table#invoice_items th, table#invoice_items td{
+table.listing td, table.listing th{
   border:1px solid #DDD;
   padding:8px;
   text-align:left;
 }
 
-table.listing th, table#invoice_items th{
-  /* background-color:#1874CD; */
+table.listing th{
   color:#333;
   font-weight:bold;
 }
 
-table.listing td{
-}
-
-table#invoice_items{
-}
-
-table#invoice_items th, table#invoice_items td{
-}
-
-table#invoice_items th{
-}
-
-table#invoice_items td{
-}
-
-table#invoice_items td select{
+table#line_items td select{
   background-color:white;
   border:0;
   font-size:10pt;
@@ -174,6 +158,10 @@ select{
   background:white;
 }
 
+td.lineitemtotal{
+  background-color:#F0F0F0;
+}
+
 table#invoice{
   border:1px solid #E1E1E1;
   box-shadow:2px 2px 4px rgba(0,0,0,0.15);
@@ -189,6 +177,11 @@ table#invoice td, table#invoice th{
   text-align:left;
 }
 
+table#line_items tr#edit_heading th{
+  background-color:#1874CD;
+  border:0;
+  color:white;
+}
 table#line_items th, table#line_items td{
   border:1px solid #DDD;
   padding:5px;

@@ -25,8 +25,14 @@ function getLineItemTotals(lines){
     if(!qty) qty = '0';
     if(!cost) cost = '0';
     row_total = cost * qty; // row_total = parseFloat($(this).find('.cost').val()) * parseFloat($(this).find('.qty').val());
-    $($(this).find('.lineitemtotal')).html(row_total);
+    // $($(this).find('.lineitemtotal')).html(roundNumber(row_total,2));
+    $($(this).find('.lineitemtotal')).html(row_total.toFixed(2));
   })
+}
+
+function roundNumber(num,dec){
+  var result = Math.round(num*Math.pow(10,dec))/Math.pow(10,dec);
+  return result;
 }
 
 $(document).ready(function() {
