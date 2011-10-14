@@ -1,7 +1,10 @@
 <h1>Clients</h1>
 
+<%= link_to 'New Client', new_organization_url %>
+
 <table class="listing">
   <tr>
+    <th>ID</th>
     <th>Organization</th>
     <th>Contact</th>
     <th>Email</th>
@@ -13,6 +16,7 @@
 
 <% @organizations.each do |organization| %>
   <tr>
+    <td><%= organization.contacts[0].id %></td>
     <td><%= link_to organization.name, organization_url(organization) %></td>
     <td><%= organization.contacts[0].full_name %></td>
     <td><%= organization.contacts[0].email %></td>

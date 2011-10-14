@@ -8,6 +8,10 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<div id="wrapper">
+
+<%= debug current_user %>
+
 <div id="user_nav">
   <% if current_user %>
     Logged in as <%= current_user.email %>.
@@ -18,7 +22,7 @@
   <% end %>
 </div>
 
-<ul>
+<ul id="nav">
   <li><%= link_to 'Clients', organizations_url %></li>
   <li><%= link_to 'Invoices', invoices_url %></li>
   <li><%= link_to 'Items', items_url %></li>
@@ -26,15 +30,15 @@
   <li><%= link_to 'My Info', user_url(current_user)  %></li>
 </ul>
 
-<ul>
-  <li><%= link_to 'New Client', new_organization_url %></li>
-</ul>
-
 <% flash.each do |name, msg| %>
   <%= content_tag :div, msg, :id => "flash_#{name}" %>
 <% end %>
 
+<div id="content">
 <%= yield %>
+</div><!-- content -->
+
+</div> <!-- wrapper -->
 
 </body>
 </html>

@@ -1,14 +1,27 @@
-<p><%= simple_format @invoice.organization.formatted_address %></p>
-<p>Invoice # <%= @invoice.id %></p>
-<p>Invoice Date <%= @invoice.read_date_created_at %></p>
-
-<table id="invoice_items">
+<table id="invoice">
 <tr>
-  <th>Item</th>
+  <td>
+    <% c = Company.find_by_account_id(current_user.account.id)  %>
+    <%= simple_format c.formatted %>
+  </td>
+  <td></td>
+</tr>
+<tr>
+  <td><%= simple_format @invoice.organization.formatted_address %></td>
+  <td>
+    <p>Invoice # <%= @invoice.id %><br/>
+    Invoice Date <%= @invoice.read_date_created_at %></p>
+  </td>
+</tr>
+<tr>
+  <td colspan="2">
+<table id="line_items">
+<tr>
+  <th class="first">Item</th>
   <th>Description</th>
   <th>Unit Cost</th>
   <th>Qty</th>
-  <th>Line Total</th>
+  <th class="last">Line Total</th>
 </tr>
 <% @invoice.line_items.each do |line_item| %>
   <tr>
@@ -19,12 +32,16 @@
     <td><%= number_to_currency line_item.line_total %></td>
   </tr>
 <% end %>
-<tr>
-<td colspan="5">Subtotal <%= number_to_currency @invoice.subtotal %></td>
+<tr class="totals">
+<td colspan="5"><strong>Subtotal</strong> <%= number_to_currency @invoice.subtotal %></td>
+</tr>
+</table>
+  </td>
 </tr>
 </table>
 
-<hr />
 
+<p>
 <%= link_to 'Edit', edit_invoice_path(@invoice) %> |
 <%= link_to 'Back', invoices_path %>
+</p>

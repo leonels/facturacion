@@ -11,10 +11,21 @@
     </div>
   <% end %>
   
-  <div class="field">
-    <%= f.label :organization_id, 'Client' %>
-    <%= f.collection_select :organization_id, @organizations, :id, :name, :prompt => 'Select' %>
-  </div>
+  <table>
+
+  <tr>
+    <td>
+    <div class="field">
+      <%= f.label :organization_id, 'Client', :class => 'label_bold' %>
+      <%= f.collection_select :organization_id, @organizations, :id, :name, :prompt => 'Select' %>
+    </div>
+    </td>
+    <td>
+      <strong>Invoice Number</strong><%= @invoice.id %>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2">
 
   <table id="invoice_items">
   <tr><th>Item</th><th>Description</th><th>Unit Cost</th><th>Qty</th><th>Line Total</th></tr>
@@ -22,6 +33,12 @@
     <%= render 'line_item_fields', :f => builder %>
   <% end %>
   </table>
+
+    </td>
+  </tr>
+  
+  <tr>
+    <td colspan="2">
 
 
 
@@ -31,6 +48,8 @@
 <% end %>
 
 Total Price: <span id="total-price">input quantities</span>
-<p>
-Testing: <span id="testing">here</span>
-</p>
+
+    </td>
+  </tr>
+
+</table>
