@@ -1,9 +1,10 @@
 class Company < ActiveRecord::Base
   belongs_to :account
+  has_many :users
   validates :account_id, :presence => true
   
   def formatted
-    a = "#{name} <br />" unless name.blank?
+    a = "<strong>#{name}</strong> <br />" unless name.blank?
     a = "#{a} #{address_one} <br />" unless address_one.blank?
     a = "#{a} #{address_two} <br />" unless address_two.blank?
     a = "#{a} #{city} " unless self.city.blank?

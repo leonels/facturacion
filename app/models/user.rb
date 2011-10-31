@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :account_id
   
   belongs_to :account
+  belongs_to :company
     
   attr_accessor :password
   before_save :encrypt_password
